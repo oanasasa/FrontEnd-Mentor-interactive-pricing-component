@@ -3,31 +3,20 @@
         <div class="about-pricing">
             <p class="pageviews">100k pageviews</p>
             <div>
-                <p class="price">$16.00<span>/month</span></p>
+               <p class="price-number">$<input v-model="currentPrice"  type="number"/><span>/month</span></p>
             </div>
         </div>
         <div class="pricing-container">
-            <progress id="pricingProgress" value="0" max="100" class="pricing-bar"></progress>
-            <button class="pricing-button"></button>
+            <input v-model="currentPrice" type="range" min="0" max="32" class="pricing-bar" /> 
         </div>
-        {{ price  }}
-        {{ doubleCounter }}
-        <button @click="increment" >increment</button>
     </div>
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue';
 
-const price = ref(3)
+import {ref} from 'vue';
+const currentPrice = ref(16);
 
-const doubleCounter = computed(() => {
-    return price.value * 2;
-})
-
-const increment = () => {
-    price.value++;
-}
 </script>
 
 <style scoped>
@@ -44,6 +33,15 @@ const increment = () => {
     @apply w-full h-1 bg-gray;
 }
 .pricing-button{
-    @apply w-3 h-3 rounded-full bg-green absolute block top-1/2 -translate-y-1/2 cursor-pointer;
+    @apply w-10 h-10 rounded-full bg-green absolute block top-1/2 -translate-y-1/2 cursor-pointer;
+}
+.price-number input{
+    @apply pointer-events-none w-14 font-bold text-4xl;
+}
+.price-number span{
+    @apply text-text-gray font-semibold text-lg;
+}
+.price-number{
+    @apply text-blue-dark flex flex-row align-middle text-4xl font-bold;
 }
 </style>

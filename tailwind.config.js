@@ -5,6 +5,7 @@ export default {
   theme: {
     colors: {
       'gray': '#F2F2F2',
+      'text-gray': '#848EAD',
       'light-gray': '#F1F5FE',
       'light-green100': '#A4F3EB',
       'light-green200': '#80FFF3',
@@ -16,7 +17,9 @@ export default {
       'black': '#000'
     },
     extend: {
-      
+      backgroundImage: {
+        'hero-title-text': "url('/public/images/pattern-circles.svg')",
+      }
     },
   },
   plugins: [],
